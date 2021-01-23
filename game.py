@@ -117,7 +117,8 @@ class Game():
         """
         przeprowadzająca rozgrywkę
         """
-        while ((player1.points() + player2.points()) < possible_moves) and (player1.points() != 0) and (player2.points() != 0):
+        while (((player1.points() + player2.points()) < possible_moves)
+                and (player1.points() != 0) and (player2.points() != 0)):
             player1.move_on_board(self.interface().board.table_board)
             player2.count_points(self.interface().board.table_board)
             self.interface().board.draw_board()
