@@ -66,7 +66,7 @@ class Interface():
         pozwala wybrać opcje gry
         """
         dictionary = {
-            1: "Wybierz opcję gry:\n1-1VS1\n2-1VSComputer\n3-ComputerVSComputer\n"
+            1: "Wybierz opcję gry:\n1-1VS1\n2-1VSComp\n3-CompVSComp\n"
         }
         game_option = input(dictionary[1])
         while game_option.isdigit() and int(game_option) not in [1, 2, 3]:

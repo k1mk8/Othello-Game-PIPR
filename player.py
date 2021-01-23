@@ -47,7 +47,8 @@ class Player:
         sprawdza poprawność pozycji i ustawia ruch na planszy
         """
         letter = self.letter(self.color())
-        print(f'Teraz ruch gracza: {self.name()}, twój znak to: {letter} , jeśli nie ma prawdiłowego ruchu wpisz X')
+        print(f'Teraz ruch gracza: {self.name()}, twój znak to: {letter}')
+        print('jeśli nie ma prawdiłowego ruchu wpisz X')
         row, column = self.get_size((len(table) - 1), (len(table[0]) - 1))
         if row == "X":
             pass
@@ -82,7 +83,6 @@ class Player:
         while not(column.isdigit() and int(column) in range(1, height+1)):
             column = input("Podaj prawidłowy numer kolumny:\n")
         return int(row), int(column)
-
 
     def inrow(self, table, row, column, name=""):
         """
@@ -139,25 +139,25 @@ class Player:
             for i in range(a, row):
                 table[i][b] = f'{letter}'
 
-    def diagonally_right_down(self, table, row, column, name=""):
+    def diagonally_right_down(self, tab, row, column, name=""):
         """
         sprawdza możliwość ruchu po skosie do dołu i w prawo
         """
         letter = self.letter(name)
         a = row + 1
         b = column + 1
-        while a < len(table) and b < len(table[0]) and table[a][b] != f'{letter}':
-            if table[a][b] == "0 ":
+        while a < len(tab) and b < len(tab[0]) and tab[a][b] != f'{letter}':
+            if tab[a][b] == "0 ":
                 a = row + 1
                 b = column + 1
                 break
             a += 1
             b += 1
-        if a != len(table) and b != len(table[0]):
+        if a != len(tab) and b != len(tab[0]):
             a -= 1
             b = column + 1
             for i in range(row + 1, a + 1):
-                table[i][b] = f'{letter}'
+                tab[i][b] = f'{letter}'
                 b += 1
 
     def diagonally_right_up(self, table, row, column, name=""):

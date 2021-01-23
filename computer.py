@@ -46,7 +46,7 @@ class Computer:
             letter = "Z "
         return letter
 
-    def move_on_board(self, table):
+    def move_on_board(self, tab):
         """
         przeprowadza losowanie pozycji i ruch na planszy
         """
@@ -55,8 +55,8 @@ class Computer:
             print("Jeden z graczy komputerowych pominął ruch!\n\n\n")
             time.sleep(2)
         else:
-            height, width = self.random_pos(len(table)-1, len(table[0])-1, table)
-            self.place_on_board(table, height, width)
+            height, width = self.random_pos(len(tab)-1, len(tab[0])-1, tab)
+            self.place_on_board(tab, height, width)
 
     def place_on_board(self, table, row, column):
         """
@@ -140,10 +140,10 @@ class Computer:
         """
         sprawdza możliwość ruchu po skosie do dołu i w prawo
         """
-        letter = self.letter(name)
+        let = self.letter(name)
         a = row + 1
         b = column + 1
-        while a < len(table) and b < len(table[0]) and table[a][b] != f'{letter}':
+        while a < len(table) and b < len(table[0]) and table[a][b] != f'{let}':
             if table[a][b] == "0 ":
                 a = row + 1
                 b = column + 1
@@ -154,7 +154,7 @@ class Computer:
             a -= 1
             b = column + 1
             for i in range(row + 1, a + 1):
-                table[i][b] = f'{letter}'
+                table[i][b] = f'{let}'
                 b += 1
 
     def diagonally_right_up(self, table, row, column, name=""):
